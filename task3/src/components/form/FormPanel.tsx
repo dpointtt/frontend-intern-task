@@ -22,18 +22,24 @@ export function FormPanel(){
     };
 
     return(
-        <div className={styles.panel}>
-            <input className={styles.inputField}
-                   type="text"
-                   placeholder="Country"
-                   value={country}
-                   onChange={(e) => setCountry(e.target.value)}
-            />
-            <button className={styles.sendButton} type={"button"} onClick={handleData}>Send</button>
-            <button className={styles.resetButton} type="button" onClick={resetData}>
-                Reset
-            </button>
-            {data.length > 0 && <DataTable data={data} />}
-        </div>
+        <>
+            <div className={styles.panel}>
+                <input className={styles.inputField}
+                       type="text"
+                       placeholder="Country"
+                       value={country}
+                       onChange={(e) => setCountry(e.target.value)}
+                />
+                <button className={styles.sendButton} type={"button"} onClick={handleData}>Send</button>
+                <button className={styles.resetButton} type="button" onClick={resetData}>
+                    Reset
+                </button>
+            </div>
+            {data.length > 0 &&
+            <div className={styles.table}>
+                <DataTable data={data} />
+            </div>
+            }
+        </>
     )
 }
