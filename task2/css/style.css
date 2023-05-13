@@ -75,3 +75,12 @@ body{
         border-color: red;
     }
 }
+
+@media (max-width: 280px){
+    .image{
+        width: 200px;
+        height: 130px;
+        padding: 35px;
+        overflow: hidden;
+    }
+}
