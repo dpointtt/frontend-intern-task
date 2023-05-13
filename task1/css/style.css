@@ -1,6 +1,16 @@
+:root {
+    --base-background: #332C39;
+    --ukraine-yellow: #FFDD00;
+    --ukraine-blue: #0057B7;
+    --japan-red: #BC002D;
+    --iceland-blue: #02529C;
+    --iceland-white: #FFFFFF;
+    --iceland-red: #DC1E35;
+}
+
 body{
     margin: 5px;
-    background: #332C39;
+    background: var(--base-background);
 }
 
 .main{
@@ -20,13 +30,14 @@ body{
 }
 
 .flag{
+    position: relative;
     height: 200px;
     width: 300px;
-    border: solid 1px #000000;
+    border: solid 1px black;
 }
 
 .ukraine{
-    background: linear-gradient(to bottom, #0057B7 50%, #FFDD00 50%);
+    background: linear-gradient(to bottom, var(--ukraine-blue) 50%, var(--ukraine-yellow) 50%);
 }
 
 /*red BC002D*/
@@ -37,6 +48,52 @@ body{
 .circle{
     height: 120px;
     width: 120px;
-    background-color: #BC002D;
+    background-color: var(--japan-red);
     border-radius: 50%;
+}
+
+/*blue 02529C*/
+/*white FFFFFF*/
+/*red DC1E35*/
+.iceland{
+    background: var(--iceland-blue);
+}
+
+.outer-line{
+    position: absolute;
+    background: var(--iceland-white);
+    z-index: 1;
+}
+
+.inner_line{
+    position: absolute;
+    background: var(--iceland-red);
+    z-index: 2;
+}
+
+.vertical{
+    width: 48px;
+    height: 200px;
+}
+
+.horizontal{
+    width: 300px;
+    height: 48px;
+}
+
+.o-h{
+    margin-top: 78px;
+}
+
+.i-h{
+    height: 24px;
+    margin-top: 90px;
+}
+
+.o-v{
+    margin-left: 84px;
+}
+
+.i-v{
+    width: 24px; margin-left: 96px;
 }
