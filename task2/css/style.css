@@ -39,6 +39,7 @@ h1 {
 }
 
 .image{
+    position: relative;
     width: 280px;
     height: 190px;
     padding: 35px;
@@ -109,8 +110,8 @@ h1 {
 
 .delete-btn {
     position: absolute;
-    margin-top: -13%;
-    margin-left: 19%;
+    top: 30px;
+    right: 10px;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -126,7 +127,8 @@ h1 {
 .restore-btn {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
 
 .restore-btn button {
