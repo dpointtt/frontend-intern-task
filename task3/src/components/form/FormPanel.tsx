@@ -1,14 +1,39 @@
 import styles from "./Form.module.css"
-import {InputField} from "../input/InputField";
-import {SendButton} from "../button/SendButton";
-import {ResetButton} from "../button/ResetButton";
+import {getData} from "../../http/RequestData";
+import {useState} from "react";
+import {DataTable} from "../table/DataTable";
 
 export function FormPanel(){
+    const [country, setCountry] = useState<string>("");
+    const [data, setData] = useState<ResponseData[]>([]);
+
+    const handleData = async () => {
+        try {
+            const response = await getData(country);
+            setData(response);
+        } catch (error){
+            console.error(error);
+        }
+    };
+
+    const resetData = async () => {
+        setCountry("");
+        setData([]);
+    };
+
     return(
-        <form className={styles.panel}>
-            <InputField></InputField>
-            <SendButton></SendButton>
-            <ResetButton></ResetButton>
-        </form>
+        <div className={styles.panel}>
+            <input className={styles.inputField}
+                   type="text"
+                   placeholder="Country"
+                   value={country}
+                   onChange={(e) => setCountry(e.target.value)}
+            />
+            <button className={styles.sendButton} type={"button"} onClick={handleData}>Send</button>
+            <button className={styles.resetButton} type="button" onClick={resetData}>
+                Reset
+            </button>
+            {data.length > 0 && <DataTable data={data} />}
+        </div>
     )
 }
