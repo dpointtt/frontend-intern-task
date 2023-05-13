@@ -1,0 +1,12 @@
+:root {
+    --base-background: #332C39;
+}
+
+body{
+    margin: 0;
+    background: var(--base-background);
+}
+
+.main{
+
+}
