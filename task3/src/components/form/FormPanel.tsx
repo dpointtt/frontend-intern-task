@@ -1,4 +1,4 @@
-import styles from "./FormPanel.module.css"
+import styles from "./Form.module.css"
 import {InputField} from "../input/InputField";
 import {SendButton} from "../button/SendButton";
 import {ResetButton} from "../button/ResetButton";

@@ -1,4 +1,4 @@
-import styles from "./InputField.module.css"
+import styles from "./Input.module.css"
 
 export function InputField(){
     return(
