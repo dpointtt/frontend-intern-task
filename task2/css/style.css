@@ -3,7 +3,7 @@
 }
 
 body{
-    margin: 0;
+    margin-top: 10px;
     background: var(--base-background);
 }
 
@@ -20,14 +20,14 @@ body{
     align-items: center;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 10px;
+    gap: 0;
     width: 80%;
 }
 
 .image{
-    width: 300px;
-    height: 200px;
-    padding: 10px;
+    width: 280px;
+    height: 190px;
+    padding: 35px;
     overflow: hidden;
 }
 
@@ -37,8 +37,14 @@ body{
     border-radius: 50%;
     border: solid 5px darkgray;
     object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
 .image:nth-child(4n+1) img{
-    border: solid 5px red;
+    border-color: red;
+}
+
+.image:hover img{
+    transform: rotate(45deg);
+    border-color: yellow;
 }
