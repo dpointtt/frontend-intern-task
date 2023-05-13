@@ -4,8 +4,9 @@
     --ukraine-blue: #0057B7;
     --japan-red: #BC002D;
     --iceland-blue: #02529C;
-    --iceland-white: #FFFFFF;
     --iceland-red: #DC1E35;
+    --czech-blue: #11457E;
+    --czech-red: #D7141A;
 }
 
 body{
@@ -61,7 +62,7 @@ body{
 
 .outer-line{
     position: absolute;
-    background: var(--iceland-white);
+    background: white;
     z-index: 1;
 }
 
@@ -96,4 +97,16 @@ body{
 
 .i-v{
     width: 24px; margin-left: 96px;
+}
+
+.czech{
+    background: linear-gradient(to bottom, white 50%, var(--czech-red) 50%);
+}
+
+.triangle{
+    width: 0;
+    height: 0;
+    border-top: 100px solid transparent;
+    border-left: 150px solid var(--czech-blue);
+    border-bottom: 100px solid transparent;
 }
