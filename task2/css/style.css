@@ -35,3 +35,7 @@ body{
     height: 100%;
     object-fit: cover;
 }
+
+.image:nth-child(4n+1){
+    border: solid 5px red;
+}
