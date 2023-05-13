@@ -1,12 +1,9 @@
-import { useState } from 'react'
 import './App.css'
+import {FormPanel} from "./components/form/FormPanel";
 
 function App() {
-
   return (
-      <div>
-          Hello world!
-      </div>
+      <FormPanel></FormPanel>
   )
 }
 
