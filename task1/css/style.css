@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    background: #332C39;
+}
+
+.main{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
