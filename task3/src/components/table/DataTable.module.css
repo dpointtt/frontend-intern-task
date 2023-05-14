@@ -1,3 +1,39 @@
 .dataTable{
     border-spacing: 50px 1rem;
 }
+
+.checkBox{
+    margin: 0 0 0 25%;
+}
+
+td{
+    text-align: center;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    background-color: var(--secondary);
+    font: inherit;
+    color: transparent;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    border-radius: 0.15em;
+    box-shadow: inset 1em 1em var(--primary);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}

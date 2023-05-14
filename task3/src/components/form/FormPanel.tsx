@@ -1,16 +1,25 @@
 import styles from "./Form.module.css"
-import {getData} from "../../http/RequestData";
+import {getData} from "../../api/RequestData";
 import {useState} from "react";
 import {DataTable} from "../table/DataTable";
 
 export function FormPanel(){
     const [country, setCountry] = useState<string>("");
-    const [data, setData] = useState<ResponseData[]>([]);
+    const [data, setData] = useState<ResponseData[]>(JSON.parse(localStorage.getItem("data")));
+    const [savedData, setSavedData] = useState<SavedState>(JSON.parse(localStorage.getItem("savedData")));
+    const [savedCount, setSavedCount] = useState<number>(0);
 
     const handleData = async () => {
+        setData([]);
+        localStorage.removeItem("data");
         try {
             const response = await getData(country);
             setData(response);
+            if(savedData == null){
+                setSavedData({});
+            }else{
+                setSavedData(JSON.parse(localStorage.getItem("savedData")));
+            }
         } catch (error){
             console.error(error);
         }
@@ -19,11 +28,23 @@ export function FormPanel(){
     const resetData = async () => {
         setCountry("");
         setData([]);
+        setSavedData(null);
+        setSavedCount(0);
+
+        localStorage.removeItem("data");
+        localStorage.removeItem("savedData");
+    };
+
+    const handleSavedCountChange = (count: number) => {
+        setSavedCount(count);
     };
 
     return(
         <>
             <div className={styles.panel}>
+                <div className={styles.counter}>
+                    Number of saved universities: {savedCount}
+                </div>
                 <input className={styles.inputField}
                        type="text"
                        placeholder="Country"
@@ -35,10 +56,10 @@ export function FormPanel(){
                     Reset
                 </button>
             </div>
-            {data.length > 0 &&
-            <div className={styles.table}>
-                <DataTable data={data} />
-            </div>
+            {data != null && savedData != null && data != [] &&
+                <div className={styles.table}>
+                    <DataTable data={data} saved={savedData} onSavedCountChange={handleSavedCountChange} />
+                </div>
             }
         </>
     )
